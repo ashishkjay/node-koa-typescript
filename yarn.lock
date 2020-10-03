@@ -2622,7 +2622,7 @@ koa-router@^7.2.1:
     path-to-regexp "^1.1.1"
     urijs "^1.19.0"
 
-koa-swagger-decorator@^1.5.16:
+koa-swagger-decorator@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/koa-swagger-decorator/-/koa-swagger-decorator-1.7.0.tgz#2a62068167e1a43053bd236039b435e95b7dbe5a"
   integrity sha512-mgKQNarH3YRHntA127kWchk7RyQPnMV871rA5nmeg4JEJV4aqaAHEEWozKoe07fLTNUoBpZEuQ4tyYRHV8Qt7A==
