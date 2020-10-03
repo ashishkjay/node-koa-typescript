@@ -1,17 +1,18 @@
+import composedMiddleware from "./middleware/composed";
+// import compose from 'koa-compose';
+// import helmet from 'koa-helmet';
+// import cors from "@koa/cors";
+// import logger from './middleware/logger';
+// import bodyParser from "koa-bodyparser";
 import Koa from "koa";
 import jwt from "koa-jwt";
-import bodyParser from "koa-bodyparser";
-import helmet from "koa-helmet";
-import cors from "@koa/cors";
-import winston from "winston";
-import { createConnection } from "typeorm";
 import "reflect-metadata";
-
-import { logger } from "./logger";
-import { config } from "./config";
-import { unprotectedRouter } from "./unprotectedRoutes";
-import { protectedRouter } from "./protectedRoutes";
 import { cron } from "./cron";
+import { config } from "./config";
+import { createConnection } from "typeorm";
+import { protectedRouter } from "./protectedRoutes";
+import { unprotectedRouter } from "./unprotectedRoutes";
+
 
 // create connection with database
 // note that its not active database connection
@@ -26,21 +27,17 @@ createConnection({
         ssl: config.dbsslconn, // if not development, will use SSL
     }
 }).then(async () => {
-
     const app = new Koa();
 
     // Provides important security headers to make your app more secure
-    app.use(helmet());
-
     // Enable cors with default options
-    app.use(cors());
-
-    // Logger middleware -> use winston as logger (logging.ts with config)
-    app.use(logger(winston));
-
+    // Logger middleware -> use pino as logger (logger.ts)
     // Enable bodyParser with default options
-    app.use(bodyParser());
-
+    // app.use(helmet())
+    // app.use(cors())
+    // app.use(logger())
+    // app.use(bodyParser())
+    app.use(composedMiddleware);
     // these routes are NOT protected by the JWT middleware, also include middleware to respond with "Method Not Allowed - 405".
     app.use(unprotectedRouter.routes()).use(unprotectedRouter.allowedMethods());
 

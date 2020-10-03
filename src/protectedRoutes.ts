@@ -13,9 +13,9 @@ protectedRouter.delete("/testusers", user.deleteTestUsers);
 
 // Swagger endpoint
 protectedRouter.swagger({
-    title: "node-typescript-koa-rest",
-    description: "API REST using NodeJS and KOA framework, typescript. TypeORM for SQL with class-validators. Middlewares JWT, CORS, Winston Logger.",
-    version: "1.5.0"
+    title: "typescript-koa",
+    description: "REST API using Typescript Node Koa with Swagger, Pino Logger, TypeORM",
+    version: "1.0.0"
 });
 
 // mapDir will scan the input dir, and automatically call router.map to all Router Class
