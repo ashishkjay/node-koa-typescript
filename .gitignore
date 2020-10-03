@@ -18,3 +18,7 @@ dist/**/*
 # Logging files
 *.log
 *.pyc
+
+
+## block npm
+package-lock.json
