@@ -1,9 +1,7 @@
-import composedMiddleware from "./middleware/composed";
-// import compose from 'koa-compose';
-// import helmet from 'koa-helmet';
-// import cors from "@koa/cors";
-// import logger from './middleware/logger';
-// import bodyParser from "koa-bodyparser";
+import helmet from "koa-helmet";
+import cors from "@koa/cors";
+import logger from "./middleware/logger";
+import bodyParser from "koa-bodyparser";
 import Koa from "koa";
 import jwt from "koa-jwt";
 import "reflect-metadata";
@@ -33,11 +31,11 @@ createConnection({
     // Enable cors with default options
     // Logger middleware -> use pino as logger (logger.ts)
     // Enable bodyParser with default options
-    // app.use(helmet())
-    // app.use(cors())
-    // app.use(logger())
-    // app.use(bodyParser())
-    app.use(composedMiddleware);
+    app.use(helmet());
+    app.use(cors());
+    app.use(logger);
+    app.use(bodyParser());
+    // app.use(composedMiddleware);
     // these routes are NOT protected by the JWT middleware, also include middleware to respond with "Method Not Allowed - 405".
     app.use(unprotectedRouter.routes()).use(unprotectedRouter.allowedMethods());
 
