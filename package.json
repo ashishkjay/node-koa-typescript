@@ -2,7 +2,6 @@
   "name": "typescript-koa",
   "version": "1.0.0",
   "description": "REST API using Typescript Node Koa with Swagger, Pino Logger, TypeORM",
-  "main": "dist/server.js",
   "scripts": {
     "dev": "nodemon --watch src -e ts,tsx --exec ts-node src/server.ts | pino-pretty -t 'SYS:HH:MM:ss' -i hostname",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
