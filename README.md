@@ -12,6 +12,9 @@ This is built upon https://github.com/javieraviles/node-typescript-koa-rest
 
 ### Upcoming
   - Testing Suite
+    - Integration testing 
+    - Load Testing
+      - Vegeta (Power level over 9000!)
   - Github Action workflows
   
 ### Known Issues
