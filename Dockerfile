@@ -18,4 +18,4 @@ RUN yarn build
 
 EXPOSE 3000
 
-CMD [ "cd", "dist", "&&", "node", "server.js" ]
+CMD [ "cd", "build/src", "&&", "node", "app.js" ]
