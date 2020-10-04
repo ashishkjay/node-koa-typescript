@@ -13,11 +13,12 @@ export interface Config {
 }
 
 const isDevMode = process.env.NODE_ENV == "development";
+const isSsl = (process.env.SSL_DATABASE == "true");
 
 const config: Config = {
     port: +(process.env.PORT || 3000),
     debugLogging: isDevMode,
-    dbsslconn: !isDevMode,
+  dbsslconn: isSsl,
     jwtSecret: process.env.JWT_SECRET || "your-secret-whatever",
     databaseUrl: process.env.DATABASE_URL || "postgres://user:pass@localhost:5432/apidb",
     dbEntitiesPath: [
