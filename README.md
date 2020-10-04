@@ -16,6 +16,5 @@ This is built upon https://github.com/javieraviles/node-typescript-koa-rest
     - Load Testing
       - [Vegeta](https://github.com/tsenart/vegeta) (Power level over 9000!)
   - Github Action workflows
-  
 ### Known Issues
   - Swagger page has problems because of dependencies

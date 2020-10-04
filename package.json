@@ -2,11 +2,12 @@
   "name": "typescript-koa",
   "version": "1.0.0",
   "description": "REST API using Typescript Node Koa with Swagger, Pino Logger, TypeORM",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon --watch src -e ts,tsx --exec ts-node src/server.ts | pino-pretty -t 'SYS:HH:MM:ss' -i hostname",
+    "dev": "nodemon --watch src -e ts,tsx --exec ts-node src/app.ts | pino-pretty -t 'SYS:HH:MM:ss' -i hostname",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
-    "start": "node dist/server.js",
-    "build": "rm -rf dist && yarn run lint && tsc",
+    "start": "yarn run build && node build/src/app.js",
+    "build": "rm -rf dist && yarn run lint && tsc -p tsconfig.release.json && cp .env ./build/src/",
     "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('!!!   You must use Yarn to install, not NPM   !!!')\""
   },
   "author": "Jacob Zukauska | Ashish Jayan",
